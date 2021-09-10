@@ -7,13 +7,12 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 def substrings(string, dictionary)
 	substring_hashmap = Hash.new()
 	dictionary.each do |word|
-		substring_count = string.scan(/#{word}/).length
+		substring_count = string.scan(/#{word}/i).length
 		if substring_count.nonzero?
 			substring_hashmap[word] = substring_count
 		end
 	end
-	print substring_hashmap
 	return substring_hashmap
 end
 
-substrings("Howdy partner, sit down! How's it going?", dictionary)
+print substrings("Howdy partner, sit down! How's it going?", dictionary)
